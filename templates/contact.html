@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+  <h2>Contact Us</h2>
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+   
+  <form action="{{ url_for('contact') }}" method=post>
+    {{ form.hidden_tag() }}
+ 
+    {{ form.name.label }}
+    {{ form.name }}
+ 
+    {{ form.email.label }}
+    {{ form.email }}
+ 
+    {{ form.subject.label }}
+    {{ form.subject }}
+ 
+    {{ form.query.label }}
+    {{ form.query }}
+ 
+    {{ form.submit }}
+  </form>
+{% endblock %}
